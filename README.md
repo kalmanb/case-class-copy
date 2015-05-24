@@ -4,33 +4,36 @@ A library to copy values from one Type of case class to another Type. Useful whe
 
 ## Example
 
-    case class SourceCaseClass(
+    case class SourceClass(
       id: Long,
       name: String,
       age: Int,
       timestamp: Long // ignored
     )
 
-    case class DestCaseClass(
+    case class DestClass(
       id: Long,
       name: String,
       age: Int
     )
   
     // Will create the following for you
-    val Copier = new CaseClassCopier[SourceCaseClass, DestCaseClass] {
-      def copy(source: RestEntity): DestCaseClass =
-        DestCaseClass(
+    val Copier = new CaseClassCopier[SourceClass, DestClass] {
+      def copy(source: SourceClass): DestClass =
+        DestClass(
           id = source.id,
           name = source.name,
           age = sourec.age
         )
     }
 
+## Usage
+
+TBC
 
 ## Behaviours
 
-* Properties must have the same name and type
+* Fields must have the same name and type
 * Fields in the source that do not exist on the destination are ignored
 
 
